@@ -30,7 +30,6 @@ jobs:
     - terraform -v
     script: ./bin/plan.sh
   - stage: TerraformApply
-#    if: branch = master
     before_script:
     - echo 'before_script'
     - export TF_WARN_OUTPUT_ERRORS=1
@@ -49,3 +48,5 @@ env:
   global:
   - TF_VERSION="0.11.8"
   - TF_ENV="prod"
+  - secure: dG5+ffdRChny0P3w0T++bKiu60KT8gMuuxSQVp2pZSBQAcSGPvIv4vV2jEJ3mRemCeyUaj+ghe5BH+OrB5AFq1yxFhTTnsPEnapbakmODtlyyrOhONHYUwPF8jhVi3pAsvt3lnZGSUIeGS05suny0LJZjtiAtreWylcWHqbizhpPUgMPwOHBIs2l7SiEx941laK2r4OsKiOKKnHTezgXer/ly2h4d2Hhq3Mm0bz0c5DMFSrE/xL7nBaELE/k8/UuxvhfZ3Iboa1OsgGkRv1BW9+e8kx+jfvl2B/WaKQQRN7HifzS8JOy2jPtVQoRDJRdzACyQsGSh0Or377rt3mbTHJGtdzaUpfSfPhIZgeWmtOH9RpIlBzHW7dx/+5hNr0DO3WX/bK0bBCOnknQyczGDuHgPgoSFTkh58mBiAgMMLHA312ZrVi6qUn6jEU7T4QwuXGgCujjiMSpaWMcM4oSd5MSrCeGxzWZUA4lp5gFC8mcentEU9htcO3C+nPsTlv0fcwIFwjvlKSFus+hKW2bYbxAlduLSQLMeK4fWPcjBxV7H/btXSgpmbmyorFy/YhEI7jX4k0Slf3t8tCaJ2GWWsm9kLPhhw9XkJPQ3yOXBPSiq7saLTsLDJcSty0jrskPAE5zECfsWQVfRvPHNbVS82PMFiD1QR+poWT3a9IaQos=
+  - secure: C4z9G0YAkSyIWEkeuch0mZ5WdrAOktS7xVwNu8lMbenN9S9aqZvhPGfagwry+MTzWEqHISLIZs0G0UdQWqhUCc3vmWZycQXn4Eg2/QvmtodMuTByvlCFSziyiKhBQ7Amodn0PveyHdfrh2odKTrI+7fXVEzHm6cfKgFRLnI3DKQXHcVsKQqgyg4dLvBjFp/4q31jd6Dfq4MQoHavFBQmcKEfXtP9TiXXwQZ6PUASDU3sxCfsNM8cOwGX/uP95sRhtRrrcS9vQ1AREq8GOsO75G5CbA6UXmxmH1rQkbLuTYi+bTPRaeZRdU3RzD6b7DHLBMeNBH1683gsyjxuI3D/F0yCFVKSaa4JFXzzThqHGXSZ0nmE4amN/kaPMvivS9jqo0eyFz5JdqBwIqUc3Yw98L8JrYssaFudwEAuAb7kiGUzBXf85YPtH2ek04QHx4yvZWAl73KSCNbAjiYnsPVZnXTPSb7u1AV5A1bwr4Qadm409txTlaUhOuwVY/ap23YuT9/b61RdB5Jl8zszm+/g74xVxLS4341ghjneYc2T2vAqkcZM9ELGK3QCgBQHLXP4Rl3XTfKk3ihsCrwHJWP50OVkj9CTgIAUfhSc3bM2g8Vr5EBNPvRfvUYV3pc7i4nsI2wkjhIEaM7+gU7vNxcX/3xdTLAz4iKBldZKw+GDuS4=
