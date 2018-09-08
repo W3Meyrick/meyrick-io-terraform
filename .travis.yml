@@ -1,0 +1,51 @@
+dist: trusty
+sudo: required
+before_install:
+- echo "before_installi"
+- chmod 0700 ./bin/*
+- ./bin/aws_config.sh
+- sudo pip install requests[security]
+install:
+- curl -s -qL -o terraform.zip "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
+- unzip -o terraform.zip
+- sudo mv -v terraform /usr/local/bin/
+- sudo chmod +x /usr/local/bin/terraform
+- curl -s -qL -o tflint.zip "https://github.com/wata727/tflint/releases/download/v0.7.2/tflint_linux_386.zip"
+- unzip -o tflint.zip
+- sudo mv -v tflint /usr/local/bin/
+- sudo chmod +x /usr/local/bin/tflint
+jobs:
+  include:
+  - stage: TerraformLint
+    before_script:
+    - echo 'before_script'
+    - export TF_WARN_OUTPUT_ERRORS=1
+    - terraform -v
+    - tflint -v
+    script: ./bin/lint.sh
+  - stage: TerraformPlan
+    before_script:
+    - echo 'before_script'
+    - export TF_WARN_OUTPUT_ERRORS=1
+    - terraform -v
+    script: ./bin/plan.sh
+  - stage: TerraformApply
+#    if: branch = master
+    before_script:
+    - echo 'before_script'
+    - export TF_WARN_OUTPUT_ERRORS=1
+    - terraform -v
+    script: ./bin/apply.sh
+notifications:
+  email:
+    recipients:
+    - luke@meyrick.eu
+    on_success: always
+    on_failure: always
+cache:
+  directories:
+  - ${HOME}/bin
+env:
+  global:
+  - TF_VERSION="0.11.8"
+  - TF_ENV="prod"

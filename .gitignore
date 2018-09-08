@@ -1,0 +1,18 @@
+#  Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+# *.tfvars
+# terraform.tfvars
+
+#Userdata and Ansible files
+# userdata
+# aws_hosts
+*.retry
+# application/templates/*
+
+.DS_STORE
