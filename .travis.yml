@@ -1,10 +1,14 @@
 dist: trusty
+language: python
+python:
+  - "2.7"
 sudo: required
 before_install:
 - echo "before_installi"
 - chmod 0700 ./bin/*
 - ./bin/aws_config.sh
 - sudo pip install requests[security]
+- sudo pip install awscli
 install:
 - curl -s -qL -o terraform.zip "https://releases.hashicorp.com/terraform/${TF_VERSION}/terraform_${TF_VERSION}_linux_amd64.zip"
 - unzip -o terraform.zip
