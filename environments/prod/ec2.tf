@@ -23,8 +23,4 @@ domain=${var.domain_name}
 EOF
 EOD
   }
-
-   provisioner "local-exec" {
-     command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.wp_webdb.id} && ansible-playbook -i aws_hosts webdb.yml --key-file ~/.ssh/wp_key/id_rsa"
-   }
 }
