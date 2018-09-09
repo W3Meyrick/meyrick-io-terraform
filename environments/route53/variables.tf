@@ -10,7 +10,7 @@ variable "region" {
   default = "eu-west-1"
 }
 
-variable "domain" {
+variable "domain_name" {
   default = "meyrick"
 }
 

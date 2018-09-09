@@ -44,7 +44,7 @@ resource "aws_route53_record" "default" {
   name    = "${var.domain_name}.net"
   type    = "A"
   ttl     = "300"
-  records = ["${aws_instance.wp_webdb.public_ip}"]
+  records = ["${data.aws_instance.wp_webdb.ip-address}"]
 }
 
 #www 
@@ -54,5 +54,5 @@ resource "aws_route53_record" "www" {
   name    = "www.${var.domain_name}.net"
   type    = "A"
   ttl     = "300"
-  records = ["${aws_instance.wp_webdb.public_ip}"]
+  records = ["${data.aws_instance.wp_webdb.ip-address}"]
 }
