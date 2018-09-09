@@ -13,9 +13,6 @@ cidrs       = {
   rds3 = "192.168.100.192/27"
   spare1 = "192.168.100.224/27"
 }
-localip   = "151.226.200.236/32"
 
 webdb_instance_type = "t2.micro"
 webdb_ami = "ami-70edb016"
-
-delegation_set = "N3SLZFK3V59WGF"

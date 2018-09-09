@@ -10,4 +10,3 @@ variable "domain_name" {}
 variable "webdb_instance_type" {}
 variable "webdb_ami" {}
 variable "key_name" {}
-variable "delegation_set" {}
