@@ -9,6 +9,6 @@ data "aws_instance" "wp_webdb" {
 
   filter {
     name  = "instance-state-name"
-    value = "running"
+    values = ["running"]
   }
 }

@@ -6,7 +6,7 @@ variable "config-bucket-name" {
   default = "meyrickblog-tfstate"
 }
 
-variable "region" {
+variable "aws_region" {
   default = "eu-west-1"
 }
 
