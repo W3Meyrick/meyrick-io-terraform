@@ -26,7 +26,7 @@ for ENVIRONMENT in $ENVIRONMENTS; do
 
   echo "terraform apply $ENVIRONMENT"
   (cd "$ENVIRONMENTS_DIR/$ENVIRONMENT" && terraform apply -input=false -no-color "$ARTIFACTS_DIR/terraform.$ENVIRONMENT.$(git rev-parse --short HEAD).plan")
-  if [ $ENVIRONMENT="prod" ]; then
+  if [ -f "$ENVIRONMENTS_DIR/$ENVIRONMENT/aws_hosts" ]; then
   (cd "$ENVIRONMENTS_DIR/$ENVIRONMENT" && aws s3 cp aws_hosts s3://$ARTIFACTS_BUCKET/artifacts/)
   fi
 done
