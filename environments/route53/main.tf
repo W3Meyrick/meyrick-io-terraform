@@ -47,7 +47,7 @@ resource "aws_route53_record" "default" {
   records = ["${data.aws_instance.wp_webdb.public_ip}"]
 }
 
-#www 
+#www
 
 resource "aws_route53_record" "www" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
@@ -63,7 +63,7 @@ resource "aws_route53_zone" "secondary" {
 }
 
 module "route53_o365" {
-  source = "git@github.com:mccanney//terraform-aws-route53-o365"
+  source = "git@github.com:mccanney/terraform-aws-route53-o365"
 
   domain           = "meyrick.io"
   zone_id          = "${aws_route53_zone.secondary.zone_id}"
