@@ -63,15 +63,15 @@ resource "aws_route53_zone" "secondary" {
 }
 
 module "route53_o365" {
-    source = "git@github.com:mccanney//terraform-aws-route53-o365"
+  source = "git@github.com:mccanney//terraform-aws-route53-o365"
 
-    domain           = "meyrick.io"
-    zone_id          = "${aws_route53_zone.secondary.zone_id}"
-    ms_txt           = "ms78516522"
-    enable_exchange  = true
-    enable_sfb       = false
-    enable_mdm       = false
-    enable_dkim      = false
-    enable_dmarc     = true
-    enable_custom_mx = false
+  domain           = "meyrick.io"
+  zone_id          = "${aws_route53_zone.secondary.zone_id}"
+  ms_txt           = "ms78516522"
+  enable_exchange  = true
+  enable_sfb       = false
+  enable_mdm       = false
+  enable_dkim      = false
+  enable_dmarc     = true
+  enable_custom_mx = false
 }
