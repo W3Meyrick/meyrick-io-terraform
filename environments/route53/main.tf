@@ -63,7 +63,7 @@ resource "aws_route53_zone" "secondary" {
 }
 
 module "route53_o365" {
-  source = "git@github.com:w3meyrick/modules/route53-o365"
+  source = "https://github.com/w3meyrick/modules/route53-o365"
 
   domain           = "meyrick.io"
   zone_id          = "${aws_route53_zone.secondary.zone_id}"
