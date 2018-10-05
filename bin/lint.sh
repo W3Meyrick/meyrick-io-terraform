@@ -10,7 +10,7 @@ OVERALL_RETURN=0
 for ENVIRONMENT in $ENVIRONMENTS; do
   echo "terraform fmt $ENVIRONMENT"
 
-  cd "$ENVIRONMENTS_DIR/$ENVIRONMENT" && terraform fmt -check=true -write=false -diff=false -list=true
+  cd "$ENVIRONMENTS_DIR/$ENVIRONMENT" && terraform fmt -check=true -write=false -diff=false -list=true %% terraform get
   LINT_RETURN=$?
 
   if [ $LINT_RETURN -ne 0 ]
