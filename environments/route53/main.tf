@@ -63,10 +63,16 @@ resource "aws_route53_zone" "secondary" {
   delegation_set_id = "${var.delegation_set}"
 }
 
-resource "aws_route53_record" "txt-meyrick-io" {
-    zone_id = "${aws_route53_zone.secondary.id}"
-    name    = "@"
-    type    = "TXT"
-    records = ["MS=ms29044491"]
-    ttl     = "3600"
+module "route53_o365" {
+    source = "git@github.com:mccanney//terraform-aws-route53-o365"
+
+    domain           = "meyrick.io"
+    zone_id          = "${aws_route53_zone.secondary.zone_id}"
+    ms_txt           = "ms78516522"
+    enable_exchange  = true
+    enable_sfb       = false
+    enable_mdm       = false
+    enable_dkim      = false
+    enable_dmarc     = true
+    enable_custom_mx = false
 }
