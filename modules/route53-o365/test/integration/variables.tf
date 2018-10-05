@@ -1,11 +1,11 @@
 variable "region" {
-    default = "us-east-1"
+  default = "us-east-1"
 }
 
 variable "domain" {
-    default = "tiguard.technology"
+  default = "tiguard.technology"
 }
 
 variable "delegation_id" {
-    default = ""
+  default = ""
 }
