@@ -66,7 +66,7 @@ module "route53_o365" {
   source = "../../modules/route53-o365?ref=v1.0"
 
   domain           = "meyrick.io"
-  zone_id          = "${aws_route53_zone.primary.zone_id}"
+  zone_id          = "Z265CEHQ65L7C3"
   ms_txt           = "ms78516522"
   enable_exchange  = true
   enable_sfb       = false
