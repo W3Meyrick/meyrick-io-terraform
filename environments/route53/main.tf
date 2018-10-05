@@ -56,3 +56,17 @@ resource "aws_route53_record" "www" {
   ttl     = "300"
   records = ["${data.aws_instance.wp_webdb.public_ip}"]
 }
+
+
+resource "aws_route53_zone" "secondary" {
+  name              = "meyrick.io"
+  delegation_set_id = "${var.delegation_set}"
+}
+
+resource "aws_route53_record" "txt-meyrick-io" {
+    zone_id = "${aws_route53_zone.secondary.id}"
+    name    = "@"
+    type    = "TXT"
+    records = ["MS=ms29044491"]
+    ttl     = "3600"
+}
