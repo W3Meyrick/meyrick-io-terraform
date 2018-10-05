@@ -1,0 +1,17 @@
+{
+    "DomainName": "tiguard.technology",
+    "Nameservers": [
+        {
+            "Name": "ns1.titaniumvanguard.co.uk"
+        },
+        {
+            "Name": "ns2.titaniumvanguard.co.uk"
+        },
+        {
+            "Name": "ns3.titaniumvanguard.co.uk"
+        },
+        {
+            "Name": "ns4.titaniumvanguard.co.uk"
+        }
+    ]
+}
