@@ -93,4 +93,3 @@ resource "aws_route53_record" "www-io" {
   ttl     = "300"
   records = ["meyrickio.wordpress.com"]
 }
-
