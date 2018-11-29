@@ -44,7 +44,7 @@ resource "aws_route53_record" "default" {
   name    = "${var.domain_name}.net"
   type    = "A"
   ttl     = "300"
-  records = ["${data.aws_instance.wp_webdb.public_ip}"]
+  records = ["192.0.78.13", "192.0.78.12"]
 }
 
 #www
@@ -52,9 +52,9 @@ resource "aws_route53_record" "default" {
 resource "aws_route53_record" "www" {
   zone_id = "${aws_route53_zone.primary.zone_id}"
   name    = "www.${var.domain_name}.net"
-  type    = "A"
+  type    = "CNAME"
   ttl     = "300"
-  records = ["${data.aws_instance.wp_webdb.public_ip}"]
+  records = ["meyrickio.wordpress.com"]
 }
 
 resource "aws_route53_zone" "secondary" {
@@ -75,3 +75,22 @@ module "route53_o365" {
   enable_dmarc     = true
   enable_custom_mx = false
 }
+
+resource "aws_route53_record" "default-io" {
+  zone_id = "${aws_route53_zone.secondary.zone_id}"
+  name    = "${var.domain_name}.io"
+  type    = "A"
+  ttl     = "300"
+  records = ["192.0.78.13", "192.0.78.12"]
+}
+
+#www
+
+resource "aws_route53_record" "www-io" {
+  zone_id = "${aws_route53_zone.secondary.zone_id}"
+  name    = "www.${var.domain_name}.io"
+  type    = "CNAME"
+  ttl     = "300"
+  records = ["meyrickio.wordpress.com"]
+}
+
